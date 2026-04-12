@@ -8,6 +8,7 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 const LoginPage = React.lazy(() => import('@/pages/auth/login'));
 const ReceptionPage = React.lazy(() => import('@/pages/reception/ReceptionPage'));
 const LaboratoryReceptionPage = React.lazy(() => import('@/pages/laboratory/LaboratoryReceptionPage'));
+const DoctorDashboardPage = React.lazy(() => import('@/pages/doctor/DoctorDashboard'));
 const AdminDashboard = React.lazy(() => import('@/pages/admin/AdminDashboard'));
 
 // Loading component
@@ -37,16 +38,25 @@ export const AppRouter: React.FC = () => {
                 } 
               />
               
-              <Route 
-                path="/laboratory-reception" 
+              <Route
+                path="/laboratory-reception"
                 element={
                   <ProtectedRoute requiredRole="laboratory">
                     <LaboratoryReceptionPage />
                   </ProtectedRoute>
-                } 
+                }
               />
-              
-              <Route 
+
+              <Route
+                path="/doctor"
+                element={
+                  <ProtectedRoute requiredRole="doctor">
+                    <DoctorDashboardPage />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
                 path="/admin" 
                 element={
                   <ProtectedRoute requiredRole="admin">

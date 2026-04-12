@@ -66,6 +66,9 @@ export default function LoginPage() {
           case 'laboratory':
             navigate('/laboratory-reception');
             break;
+          case 'doctor':
+            navigate('/doctor');
+            break;
           default:
             navigate('/reception');
         }

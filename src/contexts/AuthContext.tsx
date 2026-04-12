@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 interface User {
   id: string;
   email: string;
-  role: 'reception' | 'laboratory' | 'admin';
+  role: 'reception' | 'laboratory' | 'admin' | 'doctor';
   name: string;
 }
 
@@ -79,6 +79,15 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           email: 'admin@clinic.com',
           role: 'admin',
           name: 'Administrator'
+        };
+        setUser(userData);
+        localStorage.setItem('auth_user', JSON.stringify(userData));
+      } else if (email === 'doctor@clinic.com' && password === 'doctor123') {
+        const userData: User = {
+          id: '4',
+          email: 'doctor@clinic.com',
+          role: 'doctor',
+          name: 'Doctor'
         };
         setUser(userData);
         localStorage.setItem('auth_user', JSON.stringify(userData));

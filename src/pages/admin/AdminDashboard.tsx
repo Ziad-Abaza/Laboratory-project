@@ -1,5 +1,5 @@
 import React from 'react';
-import { BarChart3, Users, Activity, FlaskConical, Settings, LogOut, Eye } from 'lucide-react';
+import { BarChart3, Users, Activity, FlaskConical, Settings, LogOut, Eye, Stethoscope } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 
@@ -33,6 +33,13 @@ export default function AdminDashboard() {
       icon: FlaskConical,
       path: '/laboratory-reception',
       color: 'from-purple-500 to-purple-600'
+    },
+    {
+      title: 'Doctor Dashboard',
+      description: 'Manage patient appointments and queue',
+      icon: Stethoscope,
+      path: '/doctor',
+      color: 'from-emerald-500 to-emerald-600'
     },
     {
       title: 'System Settings',
