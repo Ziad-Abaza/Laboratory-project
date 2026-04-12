@@ -10,6 +10,7 @@ const ReceptionPage = React.lazy(() => import('@/pages/reception/ReceptionPage')
 const LaboratoryReceptionPage = React.lazy(() => import('@/pages/laboratory/LaboratoryReceptionPage'));
 const DoctorDashboardPage = React.lazy(() => import('@/pages/doctor/DoctorDashboard'));
 const LabTechnicianDashboardPage = React.lazy(() => import('@/pages/technician/LabTechnicianDashboard'));
+const SystemSettingsPage = React.lazy(() => import('@/pages/settings/SystemSettings'));
 const AdminDashboard = React.lazy(() => import('@/pages/admin/AdminDashboard'));
 
 // Loading component
@@ -67,14 +68,23 @@ export const AppRouter: React.FC = () => {
               />
 
               <Route
-                path="/admin" 
+                path="/admin"
                 element={
                   <ProtectedRoute requiredRole="admin">
                     <AdminDashboard />
                   </ProtectedRoute>
-                } 
+                }
               />
-              
+
+              <Route
+                path="/settings"
+                element={
+                  <ProtectedRoute requiredRole="admin">
+                    <SystemSettingsPage />
+                  </ProtectedRoute>
+                }
+              />
+
               {/* Default redirect */}
               <Route path="/" element={<Navigate to="/login" replace />} />
               

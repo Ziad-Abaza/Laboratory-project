@@ -152,7 +152,7 @@ export default function AdminDashboard() {
       title: 'System Settings',
       description: 'Configure system preferences',
       icon: Settings,
-      path: '#',
+      path: '/settings',
       color: 'from-gray-500 to-gray-600',
     },
   ];
