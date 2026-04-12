@@ -64,7 +64,12 @@ export default function LoginPage() {
             navigate('/reception');
             break;
           case 'laboratory':
-            navigate('/laboratory-reception');
+            // Check if user is lab technician to redirect to technician dashboard
+            if (user.email === 'technician@clinic.com') {
+              navigate('/technician');
+            } else {
+              navigate('/laboratory-reception');
+            }
             break;
           case 'doctor':
             navigate('/doctor');

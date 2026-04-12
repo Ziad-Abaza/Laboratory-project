@@ -4,7 +4,7 @@ import { useAuth } from '@/hooks/useAuth';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
-  requiredRole?: 'reception' | 'laboratory' | 'admin';
+  requiredRole?: 'reception' | 'laboratory' | 'admin' | 'doctor';
 }
 
 export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ 
@@ -32,7 +32,13 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
       case 'reception':
         return <Navigate to="/reception" replace />;
       case 'laboratory':
+        // Check if user is lab technician
+        if (user.email === 'technician@clinic.com') {
+          return <Navigate to="/technician" replace />;
+        }
         return <Navigate to="/laboratory-reception" replace />;
+      case 'doctor':
+        return <Navigate to="/doctor" replace />;
       default:
         return <Navigate to="/login" replace />;
     }

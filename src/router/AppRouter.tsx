@@ -9,6 +9,7 @@ const LoginPage = React.lazy(() => import('@/pages/auth/login'));
 const ReceptionPage = React.lazy(() => import('@/pages/reception/ReceptionPage'));
 const LaboratoryReceptionPage = React.lazy(() => import('@/pages/laboratory/LaboratoryReceptionPage'));
 const DoctorDashboardPage = React.lazy(() => import('@/pages/doctor/DoctorDashboard'));
+const LabTechnicianDashboardPage = React.lazy(() => import('@/pages/technician/LabTechnicianDashboard'));
 const AdminDashboard = React.lazy(() => import('@/pages/admin/AdminDashboard'));
 
 // Loading component
@@ -52,6 +53,15 @@ export const AppRouter: React.FC = () => {
                 element={
                   <ProtectedRoute requiredRole="doctor">
                     <DoctorDashboardPage />
+                  </ProtectedRoute>
+                }
+              />
+
+              <Route
+                path="/technician"
+                element={
+                  <ProtectedRoute requiredRole="laboratory">
+                    <LabTechnicianDashboardPage />
                   </ProtectedRoute>
                 }
               />

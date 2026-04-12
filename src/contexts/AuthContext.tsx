@@ -91,6 +91,15 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         };
         setUser(userData);
         localStorage.setItem('auth_user', JSON.stringify(userData));
+      } else if (email === 'technician@clinic.com' && password === 'tech123') {
+        const userData: User = {
+          id: '5',
+          email: 'technician@clinic.com',
+          role: 'laboratory',
+          name: 'Lab Technician'
+        };
+        setUser(userData);
+        localStorage.setItem('auth_user', JSON.stringify(userData));
       } else {
         throw new Error('Invalid credentials');
       }
